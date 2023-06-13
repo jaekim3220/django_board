@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>환영합니다</title>
+    </head>
+    <body>
+        <!-- views_test.py 에서 설정한 key:value 값 사용한 request-->
+        
+        <!-- html 단일 데이터 return -->
+<!-- 
+        <h1>{{name}}님 환영합니다</h1> 
+-->
+
+        <!-- html + multi 데이터 return -->
+<!-- 
+        <h1>{{data.name}}님 환영합니다</h1>
+        <h1>{{data.age}}님 환영합니다</h1> 
+-->
+
+        <!--사용자가 get 요청으로 데이터를 넣어올 때 post 요청 -->
+            <!-- 파이썬 탬플릿엔진과 html 주석간의 선후문제가 발생할 경우
+            {# #}을 통해 파이썬의 템플릿 엔진 문법을 감싼다 -->
+        <!-- localhost:8000/parameter_data?id=1&name=hongildong&password=1234 -->
+<!--     
+        <h1>id : {{ data.id }}</h1>
+        <h1>name : {{ data.name }}</h1>
+        <h1>password : {{data.password}}</h1>         
+-->
+
+        <!-- name, email, password 받아서 화면에 dict 형태로 -->
+    <!-- localhost:8000/parameter_data?name=hong&email=hong@naver.com&password=1234 -->
+
+<!--     
+        <h1>이름 : {{my_data.name}}</h1>
+        <h1> email : {{ my_data.email }}</h1>
+        <h1>비밀번호 : {{ my_data.password }}</h1>
+     -->
+
+    <!-- test_html_parameter_data2는 여기에 안 적었음 -->
+    </body>
+</html>
