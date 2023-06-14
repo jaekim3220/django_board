@@ -1,0 +1,27 @@
+<!-- urls의 path('', views.home), views의 def home(requests): -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>board</title>
+    </head>
+    <body>
+        <ul>
+            <!-- 각 태그별 링크를 할당 (a 태그-href) -->
+            <li>
+                <a href="/">HOME</a>
+            </li>
+            <li>
+                <a href="/posts">계시판</a>
+            </li>
+            <li>
+                <a href="/authors">회원관리</a>
+                <!-- href=여기에는 urls.py의 path정보를 입력 -->
+            </li>
+        </ul>
+        
+        {% block content %}
+        <!-- 상속 설정 - 해당 부분에 자식 화면이 생성 됨 (상단은 공통) -->
+        {% endblock %}
+    </body>
+</html>

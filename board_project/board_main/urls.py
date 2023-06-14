@@ -1,5 +1,5 @@
 from django.urls import path
-from . import views_test
+from . import views
 
 urlpatterns = [
     # path('', views_test.test_html_multi_data),
@@ -14,4 +14,9 @@ urlpatterns = [
     # path('test_select_all', views_test.test_select_all),
     # path('test_select_filter', views_test.test_select_filter),
     # path('test_update', views_test.test_update),
+
+
+    path('', views.home), # 홈 화면 생성
+    path('authors/', views.author_list), # aurhots 화면
+    path('posts/', views.post_list), # posts 화면
 ]
