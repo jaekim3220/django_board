@@ -141,3 +141,41 @@ def test_select_filter(request):
     # my_password = request.GET.get('name')
     tests = Test.objects.filter(name = my_name)
     return render(request, 'test/test_select_filter.html', {"datas":tests})
+
+
+'''update를 하기 위해서는 해당 건을 사전에 조회하기 위한 id값이 필요
+매서드는 등록과 동일하게 save()함수 사용
+'''
+def test_update(request):
+    if request.method == 'POST':
+        my_id = request.POST['my_id']
+        t1 = Test.objects.get(id=my_id)
+        my_name = request.POST['my_name']
+        my_email = request.POST['my_email']
+        my_password = request.POST['my_pw']
+
+        # print(type(my_id)) # 조회 결과 str 형태, int로 자동으로 형변환
+        # t1 = Test() # 이미 조회 했으므로 따로 객체를 생성할 필요 없음
+        # id를 기준으로 name, email, password 업데이트
+        t1.name = my_name 
+        t1.email = my_email
+        t1.password = my_password
+        t1.save() 
+        # save : 신규 객체 save 시 insert, 기존 객체 save 시 update
+        return redirect('/') # localhost:8000/으로 가라(home으로)
+    else:
+        return render(request, 'test/test_update.html') #test_post_form으로 return
+    
+
+'''delete는 delete()함수 사용
+update와 마찬가지로 기존 객체 데이터 조회 후 삭제
+delete는 그냥 하지 말 것 에러나면 골치 아픔
+'''
+# def test_update(request):
+#     if request.method == 'POST':
+#         my_id = request.POST['my_id']
+#         t1 = Test.objects.get(id=my_id)
+#         t1.delete()
+#         return redirect('/') # localhost:8000/으로 가라(home으로)
+#     else:
+#         return render(request, 'test/test_update.html') #test_post_form으로 return

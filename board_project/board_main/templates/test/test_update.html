@@ -1,0 +1,26 @@
+<!-- 
+form 태그
+form action="처리할URL" method="get" 또는 "post"></form
+일반 문자열은 text, 비밀번호같이 민감 정보는 password 형식
+-->
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <body>
+            <form action = "http://localhost:8000/test_update" method="POST">
+                {% csrf_token %}
+                id : <input type="text" name="my_id"><br>
+                name : <input type="text" name="my_name"><br>
+                email : <input type="text" name="my_email"><br>
+                password : <input type="text" name="my_pw"><br>
+                <br>
+                <input type="submit" value="수정하기">
+                <input type="submit" value="삭제하기">
+            </form>
+        </body>
+    </head>
+
+
+
+
+</html>
