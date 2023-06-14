@@ -109,3 +109,25 @@ def test_post_handle(request):
         return redirect('/') # localhost:8000/으로 가라(home으로)
     else:
         return render(request, 'test/test_post_form.html') #test_post_form으로 return
+    
+ 
+# test_select_one/<id 번호> 호출
+# select * from board_main_test;에서 id 번호 확인
+def test_select_one(request, my_id):
+    # 단건만 조회 : (내장)get 함수 사용
+    t1 = Test.objects.get(id=my_id)
+    '''print(t1.name, t1.email, t1.password) 
+    # test_select_one.html가 공백일 때 run하면 해당 id의 이름, 메일, 비번 정보가 터미널에 조회'''
+    return render(request, 'test/test_select_one.html', {'data':t1})
+
+def test_select_all(request):
+    # 모든 데이터 조회 : select * from <table> : all(*) 함수 사용
+    tests = Test.objects.all()
+    # for문(dicta.keys())을 사용해 데이터 print
+    # for a in tests:
+    #     print(a.id, a.name, a.email, a.password)
+    # datas라는 이름으로 tests 데이터를 넣어주겠다
+    return render(request, 'test/test_select_all.html', {"datas":tests})
+
+
+'''where 조건으로 다건의 데이터 조회 : filter()함수 사용'''
