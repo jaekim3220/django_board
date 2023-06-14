@@ -1,21 +1,19 @@
-<!-- 상속처리 -->
-
-
+<!-- form 태그
+<form action="처리할URL" method="get" 또는 "post"></form>
+일반 문자열은 text, 비밀번호같이 민감 정보는 password 형식
+-->
 {% extends 'home.html' %}
+
 <!-- 아래에 자식 화면 설정 -->
 {% block content %}
-<form action = "http://localhost:8000/test_post_handle" method="POST">
+
+<form method="POST">
     {% csrf_token %}
     name : <input type="text" name="my_name"><br>
     email : <input type="text" name="my_email"><br>
     password : <input type="text" name="my_pw"><br>
+    <br>
     <input type="submit" value="회원가입">
 </form>
+
 {% endblock %}
-
-            
-
-
-
-
-</html>

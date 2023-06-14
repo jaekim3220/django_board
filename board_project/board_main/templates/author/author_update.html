@@ -1,0 +1,14 @@
+{% extends 'home.html' %}
+
+{% block content %}
+
+<form method="POST">
+    {% csrf_token %}
+    name : <input type="text" name="my_name" value="{{author.name}}"><br>
+    <!-- value="{{author.name}}"로 default 값 셋팅 -->
+    email : <input type="text" name="my_email" value="{{author.email}}"><br>
+    password : <input type="text" name="my_pw" value="{{author.password}}"><br>
+    <input type="submit" value="수정하기">
+</form>
+
+{% endblock %}

@@ -17,6 +17,9 @@ urlpatterns = [
 
 
     path('', views.home), # 홈 화면 생성
-    path('authors/', views.author_list), # aurhots 화면
-    path('posts/', views.post_list), # posts 화면
+    path('author/', views.author_list), # aurhot 화면 링크
+    path('author/new', views.author_new),
+    path('author/<int:my_id>', views.author_detail),
+    path('author/<int:my_id>/update', views.author_update),
+    path('post/', views.post_list), # posts 화면
 ]

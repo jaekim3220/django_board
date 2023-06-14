@@ -2,10 +2,33 @@
 
 {% extends 'home.html' %}
 
-
 <!-- 아래에 자식 화면 설정 -->
 {% block content %}
 
-<p>authors 화면입니다</p>
+<h1>회원목록</h1>
+<a href="/author/new">회원가입</a>
+<!-- urls.py와 비교해서 /authors/new로 변경 가능 -->
+<table>
+    <thead>
+        <tr>
+            <th>이름</th>
+            <th>email</th>
+            <th>가입 날짜</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- test_select_all.html 참고-->
+        {% for author in authors %}
+        <tr>
+            <td><a href="/author/{{author.id}}">{{author.name}}</a></td>
+            <!-- author의 id를 기준으로 이름 데이터를 추출 
+            urls.py 에서 받아준다-->
+            <td>{{author.email}}</td>
+            <td>{{author.created_at}}</td>
+        </tr>
+        {% endfor %} 
+    </tbody>
+</table>
+
 
 {% endblock %}
