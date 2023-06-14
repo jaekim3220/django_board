@@ -12,5 +12,7 @@ urlpatterns = [
     # test_select_one은 데이터 하나만 조회하므로 key 값을 설정(사용자가 원하는 데이터 조회)
     # id를 넣어서 조회
     path('test_select_all', views_test.test_select_all),
+    path('test_select_filter', views_test.test_select_filter),
+    
 
 ]

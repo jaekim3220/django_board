@@ -130,4 +130,14 @@ def test_select_all(request):
     return render(request, 'test/test_select_all.html', {"datas":tests})
 
 
-'''where 조건으로 다건의 데이터 조회 : filter()함수 사용'''
+'''where 조건으로 다건의 데이터 조회 : filter()함수 사용
+'''
+# Test.objects.filter(name = my_name) -> 다건 데이터 추출 가정
+# http://localhost:8000/test_select_filter?name=asdf
+def test_select_filter(request):
+    # 아래에 받아올 데이터를 설정
+    my_name = request.GET.get('name')
+    # my_email = request.GET.get('name')
+    # my_password = request.GET.get('name')
+    tests = Test.objects.filter(name = my_name)
+    return render(request, 'test/test_select_filter.html', {"datas":tests})
