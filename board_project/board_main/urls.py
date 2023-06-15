@@ -21,5 +21,9 @@ urlpatterns = [
     path('author/new', views.author_new),
     path('author/<int:my_id>', views.author_detail),
     path('author/<int:my_id>/update', views.author_update),
+
     path('post/', views.post_list), # posts 화면
+    path('post/new', views.post_new),
+    path('post/<int:my_id>', views.post_detail),
+    path('post/<int:my_id>/update', views.post_update),
 ]

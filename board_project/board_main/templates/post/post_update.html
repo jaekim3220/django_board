@@ -1,0 +1,13 @@
+{% extends 'home.html' %}
+
+{% block content %}
+
+<form method="POST">
+    {% csrf_token %}
+    name : <input type="text" name="my_title" value="{{post.title}}"><br>
+    <!-- value="{{author.name}}"로 default 값 셋팅 -->
+    contents : <input type="text" name="my_contents" value="{{post.contents}}"><br>
+    <input type="submit" value="계시판 수정하기">
+</form>
+
+{% endblock %}

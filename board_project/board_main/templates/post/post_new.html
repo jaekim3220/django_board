@@ -1,0 +1,15 @@
+<!-- form 태그 <form action="처리할URL" method="get" 또는 "post"></form>
+일반 문자열은 text, 비밀번호같이 민감 정보는 password 형식-->
+{% extends 'home.html' %}
+
+<!-- 아래에 자식 화면 설정 -->
+{% block content %}
+
+<form method="POST">
+    {% csrf_token %}
+    title : <input type="text" name="my_title"><br>
+    contents : <input type="text" name="my_contents"><br>
+    <input type="submit" value="계시판 정보입력">
+</form>
+
+{% endblock %}
