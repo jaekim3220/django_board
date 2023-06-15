@@ -5,15 +5,17 @@
 <!-- 아래에 자식 화면 설정 -->
 {% block content %}
 
-<h1>Post상세조회</h1>
+<h1>게시판 상세조회</h1>
 <!-- urls.py와 비교해서 /authors/new로 변경 가능 -->
-<p>title : {{post.title}}</p>
-<p>contents : {{post.contents}}</p>
-<span>가입날짜 : {{post.created_at}}</span>&nbsp;&nbsp;&nbsp;
+<p>제목 : {{post.title}}</p>
+<p>내용 : {{post.contents}}</p>
+
+<span>작성자 : </span>&nbsp;&nbsp;
+<span>작성날짜 : {{post.created_at}}</span>&nbsp;&nbsp;
 <span>회원정보수정날짜 : {{post.updated_at}}</span>
 
 <div>
-    <a href="/post/{{post.id}}/update">계시판 정보수정</a>
+    <a href="/post/{{post.id}}/update">게시판 수정</a>
 </div>
 
 {% endblock %}

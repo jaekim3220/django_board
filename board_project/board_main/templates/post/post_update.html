@@ -4,10 +4,13 @@
 
 <form method="POST">
     {% csrf_token %}
-    name : <input type="text" name="my_title" value="{{post.title}}"><br>
-    <!-- value="{{author.name}}"로 default 값 셋팅 -->
-    contents : <input type="text" name="my_contents" value="{{post.contents}}"><br>
-    <input type="submit" value="계시판 수정하기">
+    <label>제목</label><br>
+    <input type="text" name="my_title" value="{{post.title}}"><br><br>
+    <label>내용</label><br>
+    <textarea name="my_contents" rows="7.5">{{post.contents}}</textarea><br>
+    <!-- <textarea name="my_contents" rows="7.5" value="{{post.contents}}"></textarea><br><br> 
+    textarea에는 value option이 없음-->
+    <br><input type="submit" value="완료">
 </form>
 
 {% endblock %}

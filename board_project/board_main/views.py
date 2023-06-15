@@ -62,7 +62,10 @@ def author_update(request,my_id):
 
 # urls.py의 path('authors', views.author_list),
 def post_list(request):
-    posts = Post.objects.all()
+    # order_by하고 -컬럼명은 내림차순 created_at
+    posts = Post.objects.filter().order_by('-created_at')
+    # posts = Post.objects.all()
+    # 다건 조회는 all 외에도 filter가 존재
     return render(request, 'post/post_list.html', {'posts':posts})
 # 'post/post_list.html'은 post 폴더 내부의 post/post_list.html이므로 그대로
 
@@ -71,11 +74,18 @@ def post_new(request):
     if request.method == 'POST':
         my_title = request.POST['my_title']
         my_contents = request.POST['my_contents']
+
+        my_email = request.POST['my_email']
+        # my_writter = request.POST['my_writter']
         # DB에 insert -> save 함수 사용
         # DB의 테이블과 sync가 맞는 Test 클래스에서 객체를 생성해 save
         p1 = Post() #객체 생성은 python_basic의 class_statements.py 참고
         p1.title = my_title #t1 객체에 my_name 세팅
         p1.contents = my_contents
+        
+        # p1.email = my_email
+        # p1.author.name = my_writter
+        # p1.writter = my_writter
         p1.save()
         return redirect('/') # localhost:8000/(home)으로 가라
     else:
@@ -92,9 +102,13 @@ def post_update(request,my_id):
     if request.method == 'POST':
         my_title = request.POST['my_title']
         my_contents = request.POST['my_contents']
+        my_email = request.POST['my_email']
+        # my_writter = request.POST['my_writter']
         # 아래는 정석으로는 if문으로 작성
         post.title = my_title 
         post.contents = my_contents
+        # post.writter = my_writter
+        
         post.save() 
         # save : 신규 객체 save 시 insert, 기존 객체 save 시 update
         return redirect('/') # localhost:8000/으로 가라(home으로)

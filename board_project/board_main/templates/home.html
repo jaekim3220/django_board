@@ -4,25 +4,60 @@
     <head>
         <meta charset="UTF-8">
         <title>board</title>
+        <!-- 실무에서는 인터넷상 부트스트랩보다 다운 받아서 프로젝트에 저장해놓고 사용 
+        예를 들어 static 폴더 생성 후 저장-->
+        <link rel="stylesheet" 
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <style>
+            h1 {
+                margin-top: 10;
+                margin-bottom: 10;
+                font-size: 36px;}
+
+            footer {
+                background-color: #343a40;
+                color: white;
+                padding: 10px;
+                position: fixed;
+                bottom: 0;
+                width: 100%;}
+        </style>
     </head>
     <body>
-        <ul>
-            <!-- 각 태그별 링크를 할당 (a 태그-href) -->
-            <li>
-                <a href="/">HOME</a>
-            </li>
-            <li>
-                <a href="/post">계시판</a>
-                <!-- urls.py와 비교해서 /posts로 변경 가능 -->
-            </li>
-            <li>
-                <a href="/author">회원관리</a>
-                <!-- urls.py와 비교해서 /authors로 변경 가능 -->
-            </li>
-        </ul>
-        
+
+        <head>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <div>
+                    <ul class="navbar-nav">
+                        <!-- 각 태그별 링크를 할당 (a 태그-href) -->
+                        <li>
+                            <a class="nav-link" href="/">HOME</a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="/post">게시판</a>
+                            <!-- urls.py와 비교해서 /posts로 변경 가능 -->
+                        </li>
+                        <li>
+                            <a class="nav-link" href="/author">회원관리</a>
+                            <!-- urls.py와 비교해서 /authors로 변경 가능 -->
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </head>
+        <!-- class 명에 이름 2개를 쓰면 2개의 클래스가 적용 -->
+
+        <main class="container mt-4">
         {% block content %}
         <!-- 상속 설정 - 해당 부분에 자식 화면이 생성 됨 (상단은 공통) -->
         {% endblock %}
+        </main>
+
+        <footer>
+            <div class="container">
+                <p class="text-center mb-0">첫 DJANGO 게시판</p>
+            </div>
+        </footer>
+        
     </body>
 </html>

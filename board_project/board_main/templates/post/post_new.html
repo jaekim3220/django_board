@@ -7,9 +7,15 @@
 
 <form method="POST">
     {% csrf_token %}
-    title : <input type="text" name="my_title"><br>
-    contents : <input type="text" name="my_contents"><br>
-    <input type="submit" value="계시판 정보입력">
+    <label>제목</label><br>
+    <input type="text" name="my_title"><br><br>
+    <label>내용</label><br>
+    <textarea name="my_contents" rows="7.5"></textarea><br><br>
+    
+    <label>작성자 이메일</label><br>
+    <input type="text" name="my_email">
+    <!-- 작성자 : <input type="textarea" name="my_writter" value="{{post.writter}}"><br> -->
+    <br><br><input type="submit" value="완료">
 </form>
 
 {% endblock %}

@@ -13,8 +13,8 @@ class Test(models.Model):
 '''author 실전 모델 생성 '''
 class Author(models.Model): #Author을 모델로 사용하겠다
     name = models.CharField(max_length=20)
-    email = models.CharField(max_length=20)
-    password = models.CharField(max_length=50)
+    email = models.CharField(max_length=50, unique=True)
+    password = models.CharField(max_length=30)
     # db 설정에 default timestamp가 걸리는 것이 아닌, 장고가 현재 시간을 db에 입력
     created_at = models.DateTimeField(auto_now_add=True) # get current timestamp로 생성시간
     updated_at = models.DateTimeField(auto_now=True) # 수정시간
@@ -22,7 +22,7 @@ class Author(models.Model): #Author을 모델로 사용하겠다
 '''post 실전 모델 생성 '''
 class Post(models.Model): #Author을 모델로 사용하겠다
     title = models.CharField(max_length=100) #varchar(100)
-    contents = models.TextField(max_length=20) # 메모리 save
+    contents = models.TextField(max_length=50) # 메모리 save
     created_at = models.DateTimeField(auto_now_add=True) # get current timestamp로 생성시간
     updated_at = models.DateTimeField(auto_now=True) # 수정시간
     

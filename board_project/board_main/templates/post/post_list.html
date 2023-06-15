@@ -5,26 +5,32 @@
 <!-- 아래에 자식 화면 설정 -->
 {% block content %}
 
-<h1>계시판 목록</h1>
-<a href="/post/new">계시판 정보입력</a>
+<h1>게시판 목록</h1>
+<a href="/post/new">게시판 작성</a><br><br>
+
 
 <table>
     <thead>
         <tr>
-            <th>title</th>
-            <th>contents</th>
-            <th>가입날짜</th>
+            <th>제목</th>
+            <!-- <th>내용</th> -->
+            <th>이메일</th>
+            <th>작성자</th>
+            <th>작성날짜</th>
             <th>업데이트날짜</th>
         </tr>
     </thead>
+    
     <tbody>
         <!-- test_select_all.html 참고-->
         {% for post in posts %}
         <tr>
             <td><a href="/post/{{post.id}}">{{post.title}}</a></td>
-            <!-- author의 id를 기준으로 이름 데이터를 추출 
-            urls.py 에서 받아준다-->
-            <td>{{post.contents}}</td>
+            <!-- post id를 기준으로 이름 데이터를 추출 urls.py 에서 받아준다-->
+            <!-- <td>{{post.contents}}</td> -->
+
+            <td>{{post.email}}</td>
+            <td>{{post.writter}}</td>
             <td>{{post.created_at}}</td>
             <td>{{post.updated_at}}</td>
         </tr>
