@@ -14,8 +14,9 @@
         <tr>
             <th>제목</th>
             <!-- <th>내용</th> -->
-            <th>이메일</th>
-            <th>작성자</th>
+            <th>목차</th>
+            <!-- <th>이메일</th> -->
+            <!-- <th>작성자</th> -->
             <th>작성날짜</th>
             <th>업데이트날짜</th>
         </tr>
@@ -27,8 +28,9 @@
             <td><a href="/post/{{post.id}}">{{post.title}}</a></td>
             <!-- post id를 기준으로 이름 데이터를 추출 urls.py 에서 받아준다-->
             <!-- <td>{{post.contents}}</td> -->
-            <td>{{post.email}}</td>
-            <td>{{post.writter}}</td>
+            <td>{{ forloop.counter }}</td>
+            <!-- <td>{{post.email}}</td> -->
+            <!-- <td>{{post.author.name}}</td> -->
             <td>{{post.created_at}}</td>
             <td>{{post.updated_at}}</td>
         </tr>
