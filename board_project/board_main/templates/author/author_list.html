@@ -4,11 +4,13 @@
 
 <!-- 아래에 자식 화면 설정 -->
 {% block content %}
-
-<h1>회원목록</h1>
-<a href="/author/new">회원가입</a>
+{% csrf_token %}
+<div class="d-flex justify-content-between align-items-center">
+    <h1 class="page-title">회원목록</h1>
+    <a href="/author/new" class="btn btn-primary"><b>회원가입</b></a>
+</div>
 <!-- urls.py와 비교해서 /authors/new로 변경 가능 -->
-<table>
+<table class="table table-hover">
     <thead>
         <tr>
             <th>이름</th>

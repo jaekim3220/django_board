@@ -4,17 +4,23 @@
 
 <!-- 아래에 자식 화면 설정 -->
 {% block content %}
-
-<h1>회원상세조회</h1>
-<!-- urls.py와 비교해서 /authors/new로 변경 가능 -->
-<p>이름 : {{author.name}}</p>
-<p>email : {{author.email}}</p>
-<p>password : {{author.password}}</p>
-<span>가입날짜 : {{author.created_at}}</span>&nbsp;&nbsp;&nbsp;
-<span>회원정보수정날짜 : {{author.updated_at}}</span>
-
-<div>
-    <a href="/author/{{author.id}}/update">회원수정</a>
+{% csrf_token %}
+<div class="row">
+    <div>
+        <h1>회원상세조회</h1>
+        <!-- urls.py와 비교해서 /authors/new로 변경 가능 -->
+        <p><b>이름</b> : {{author.name}}</p>
+        <p><b>email</b> : {{author.email}}</p>
+        <p><b>password</b> : {{author.password}}</p>
+        <hr>
+        <div>
+            <span><b>가입날짜</b> : {{author.created_at}}</span>&nbsp;&nbsp;&nbsp;
+            <span><b>회원정보수정날짜</b> : {{author.updated_at}}</span>
+        </div>
+    </div>
+    <div>
+        <a href="/author/{{author.id}}/update" class="btn btn-primary">회원수정</a>
+        <a href="/author" class="btn btn-secondary"><b>회원목록</b></a>
+    </div>
 </div>
-
 {% endblock %}
