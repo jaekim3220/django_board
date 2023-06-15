@@ -17,6 +17,24 @@ def author_list(request):
 # 동작 안하면 캐시 삭제
 
 
+def author_new(request):
+    if request.method == 'POST':
+        my_name = request.POST['my_name']
+        my_email = request.POST['my_email']
+        my_password = request.POST['my_pw']
+        # DB에 insert -> save 함수 사용
+        # DB의 테이블과 sync가 맞는 Test 클래스에서 객체를 생성해 save
+        a1 = Author() #객체 생성은 python_basic의 class_statements.py 참고
+        a1.name = my_name #t1 객체에 my_name 세팅
+        a1.email = my_email
+        a1.password = my_password
+        a1.save()
+        return redirect('/') # localhost:8000/(home)으로 가라
+    else:
+        return render(request, 'author/author_new.html') 
+    # author/author_new.html으로 return
+
+
 def author_detail(request,my_id):
     author = Author.objects.get(id=my_id) # Author의 모든 데이터 추출
     return render(request, 'author/author_detail.html', {'author':author})
@@ -39,23 +57,6 @@ def author_update(request,my_id):
         return render(request, 'author/author_update.html', {'author':author})
     # {'author':author} : 이미 조회한 데이터를 던져 줌
 
-
-def author_new(request):
-    if request.method == 'POST':
-        my_name = request.POST['my_name']
-        my_email = request.POST['my_email']
-        my_password = request.POST['my_pw']
-        # DB에 insert -> save 함수 사용
-        # DB의 테이블과 sync가 맞는 Test 클래스에서 객체를 생성해 save
-        a1 = Author() #객체 생성은 python_basic의 class_statements.py 참고
-        a1.name = my_name #t1 객체에 my_name 세팅
-        a1.email = my_email
-        a1.password = my_password
-        a1.save()
-        return redirect('/') # localhost:8000/(home)으로 가라
-    else:
-        return render(request, 'author/author_new.html') 
-    # author/author_new.html으로 return
 
 
 
