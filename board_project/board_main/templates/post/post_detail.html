@@ -1,51 +1,24 @@
-<!-- home.html의 상속코드 사용 -->
-
 {% extends 'home.html' %}
 
-<!-- 아래에 자식 화면 설정 -->
-{% block content %}
-<div class="row">
-    <div>
-        <!-- <table class="table table-hover"> -->
-        <h1>게시글 상세조회</h1>
-        <!-- urls.py와 비교해서 /authors/new로 변경 가능 -->
-        <p><b>제목</b> : {{post.title}}</p>
-        <p><b>내용</b> : {{post.contents}}</p>
-        <!-- </table> -->
-        <hr>
-        <div>
-            <span>작성자 : {{post.author.name}}</span>&nbsp;&nbsp;
-            <span>작성일 : {{post.created_at}}</span>&nbsp;&nbsp;
-            <span>수정일 : {{post.updated_at}}</span>
-        </div>
-    </div>
-    <div>
-        <a href="/post/{{post.id}}/update" class="btn btn-primary"><b>게시글 수정</b></a>
-        <a href="/post" class="btn btn-secondary"><b>게시판 목록</b></a>
-    </div>
-</div>
-{% endblock %}
-
-<!-- 
-{% extends 'home.html' %}
 
 {% block content%}
+{% csrf_token %}
 <div class="row">
     <div>
-        <h1>게시글 상세조회</h1>
-        <p>제목 : {{post.title}}</p>
-        <p>내용 : {{post.contents}}</p>
+        <h1><b>게시글 상세조회</b></h1>
+        <p><b>제목 : </b>{{post.title}}</p>
+        <p><b>내용 : </b>{{post.contents}}</p>
         <hr>
         <div>
-            <span>작성자 : {{post.author.name}}</span>&nbsp;&nbsp;
-            <span>작성일 : {{post.created_at}}</span>&nbsp;&nbsp;
-            <span>수정일 : {{post.updated_at}}</span>
+            <span><b>작성자 : </b>{{post.author.name}}</span>&nbsp;&nbsp;
+            <span><b>작성일 : </b>{{post.created_at}}</span>&nbsp;&nbsp;
+            <span><b>수정일 : </b>{{post.updated_at}}</span>
         </div>
     </div>
     <div>
-        <a href="/post/{{post.id}}/update" class="btn btn-primary">글수정</a>
-        <a href="/posts" class="btn btn-secondary">글목록</a>
+        <a href="/post/{{post.id}}/update" class="btn btn-primary"><b>글수정</b></a>
+        <a href="/post" class="btn btn-secondary"><b>글목록</b></a>
     </div>
 </div>
 {% endblock %}
--->
+>>>>>>> 86dbd8dc65782320100db226d6bb56cf584eb45c

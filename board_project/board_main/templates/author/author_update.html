@@ -1,5 +1,6 @@
 {% extends 'home.html' %}
 
+<<<<<<< HEAD
 {% block content%}
 <h1>회원수정</h1>
 <form method="POST">
@@ -18,6 +19,26 @@
         <a href="/author/{{author.id}}" class="btn btn-secondary">수정취소</a>
         
     </div>  
+=======
+{% block content %}
+<h1>회원수정</h1>
+<form method="POST">
+    {% csrf_token %}
+    <div class="form-group">
+        이름<input type="text" name="my_name" class="form-control" value="{{author.name}}">
+    </div>
+    <!-- value="{{author.name}}"로 default 값 셋팅 -->
+    <div class="form-group">
+        이메일<input type="text" name="my_email" class="form-control" value="{{author.email}}">
+    </div>
+    <div class="form-group">
+        비밀번호<input type="text" name="my_pw" class="form-control" value="{{author.password}}">
+    </div>
+    <input type="submit" value="수정하기" class="btn btn-primary">
+    <a href="/author/{{author.id}}" class="btn btn-secondary">수정취소</a>
+    
+</div>  
+>>>>>>> 86dbd8dc65782320100db226d6bb56cf584eb45c
 </form>
 
 {% endblock %}
