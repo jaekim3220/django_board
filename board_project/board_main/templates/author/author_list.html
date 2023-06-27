@@ -5,14 +5,18 @@
 <!-- 아래에 자식 화면 설정 -->
 {% block content %}
 
-<h1>회원목록</h1>
-<a href="/author/new">회원가입</a>
+<div class="d-flex justify-content-between align-items-center">
+    <h1 class="page-title">회원목록</h1>
+    <a href="/author/new" class="btn btn-primary"><b>회원가입</b></a>
+    <!-- "btn btn-primary" : 버튼 -->
+</div>
 <!-- urls.py와 비교해서 /authors/new로 변경 가능 -->
-<table>
+
+<table class="table table-hover">
     <thead>
         <tr>
             <th>이름</th>
-            <th>email</th>
+            <th>이메일</th>
             <th>가입 날짜</th>
         </tr>
     </thead>
@@ -30,5 +34,33 @@
     </tbody>
 </table>
 
+{% endblock %}
+<!-- 
+{% extends 'home.html' %}
+
+{% block content%}
+<div class="d-flex justify-content-between align-items-center">
+    <h1 class="page-title">회원목록</h1>
+    <a href="/author/new" class="btn btn-primary">회원가입</a>
+</div>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>이름</th>
+            <th>email</th>
+            <th>가입일</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for author in authors %}
+        <tr>
+            <td><a href="/author/{{author.id}}">{{author.name}}</a></td>
+            <td>{{author.email}}</td>
+            <td>{{author.created_at}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
 
 {% endblock %}
+ -->

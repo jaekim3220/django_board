@@ -5,17 +5,52 @@
 <!-- 아래에 자식 화면 설정 -->
 {% block content %}
 
-<form method="POST">
-    {% csrf_token %}
-    <label>제목</label><br>
-    <input type="text" name="my_title"><br><br>
-    <label>내용</label><br>
-    <textarea name="my_contents" rows="7.5"></textarea><br><br>
-    
-    <label>작성자 이메일</label><br>
-    <input type="text" name="my_email">
-    <!-- 작성자 : <input type="textarea" name="my_writter" value="{{post.writter}}"><br> -->
-    <br><br><input type="submit" value="완료">
-</form>
+<h1>글 작성</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+            <label>제목</label>
+            <input type="text" class="form-control" name="my_title">
+        </div>
+        <div class="form-group">
+            <label>내용</label>
+            <textarea name="my_contents" class="form-control" rows="7.5"></textarea>
+        </div>
+        <div class="form-group">
+            <label>작성자 이메일</label>
+            <input type="text" class="form-control" name="my_email">
+        </div>
+        
+        <!-- 작성자 : <input type="textarea" name="my_writter" value="{{post.writter}}"><br> -->
+        <input type="submit" value="완료" class="btn btn-primary">
+        <a href="/post" class="btn btn-secondary">게시글목록</a>
+        <input type="submit" value="완료" class="btn btn-primary">
+    </form>
 
 {% endblock %}
+
+
+<!-- 
+{% extends 'home.html' %}
+
+{% block content%}
+<h1>글 작성</h1>
+<form method="POST">
+    {% csrf_token %}
+    <div class="form-group">
+        <label>제목</label>
+        <input type="text" class="form-control" name="my_title">
+    </div>
+    <div class="form-group">
+        <label>내용</label>
+        <textarea name="my_contents" class="form-control"  rows="10"></textarea>
+    </div>
+    <div class="form-group">
+        <label>작성자email</label>
+        <input type="text" class="form-control" name="my_email">
+    </div>
+    <input type="submit" value="완료" class="btn btn-primary">
+    <a href="/posts" class="btn btn-secondary">글목록</a>
+</form>
+{% endblock %}
+-->

@@ -4,16 +4,42 @@
 -->
 {% extends 'home.html' %}
 
-<!-- 아래에 자식 화면 설정 -->
-{% block content %}
-
+{% block content%}
+<h1>회원등록</h1>
 <form method="POST">
     {% csrf_token %}
-    name : <input type="text" name="my_name"><br>
-    email : <input type="text" name="my_email"><br>
-    password : <input type="text" name="my_pw"><br>
-    <br>
-    <input type="submit" value="회원가입">
+    <div class="form-group">
+    이름<input type="text" class= "form-control" name="my_name">
+    </div>
+    <div class="form-group">
+    email<input type="text"  class= "form-control" name="my_email">
+    </div>
+    <div class="form-group">
+    password<input type="text" class= "form-control" name="my_pw">
+    </div>
+    <input type="submit" value="회원가입" class="btn btn-primary">
+    <a href="/author" class="btn btn-secondary">회원목록</a>
 </form>
-
 {% endblock %}
+
+<!-- 
+{% extends 'home.html' %}
+
+{% block content%}
+<h1>회원등록</h1>
+<form method="POST">
+    {% csrf_token %}
+    <div class="form-group">
+    이름<input type="text" class= "form-control" name="my_name">
+    </div>
+    <div class="form-group">
+    email<input type="text"  class= "form-control" name="my_email">
+    </div>
+    <div class="form-group">
+    password<input type="text" class= "form-control" name="my_password">
+    </div>
+    <input type="submit" value="회원가입" class="btn btn-primary">
+    <a href="/authors" class="btn btn-secondary">회원목록</a>
+</form>
+{% endblock %}
+-->

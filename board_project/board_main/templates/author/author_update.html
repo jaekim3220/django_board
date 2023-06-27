@@ -1,14 +1,45 @@
 {% extends 'home.html' %}
 
-{% block content %}
-
+{% block content%}
+<h1>회원수정</h1>
 <form method="POST">
     {% csrf_token %}
-    name : <input type="text" name="my_name" value="{{author.name}}"><br>
-    <!-- value="{{author.name}}"로 default 값 셋팅 -->
-    email : <input type="text" name="my_email" value="{{author.email}}"><br>
-    password : <input type="text" name="my_pw" value="{{author.password}}"><br>
-    <input type="submit" value="수정하기">
+        <div class="form-group">
+            이름<input type="text" name="my_name" class="form-control" value="{{author.name}}">
+        </div>
+        <!-- value="{{author.name}}"로 default 값 셋팅 -->
+        <div class="form-group">
+            이메일<input type="text" name="my_email" class="form-control" value="{{author.email}}">
+        </div>
+        <div class="form-group">
+            비밀번호<input type="text" name="my_pw" class="form-control" value="{{author.password}}">
+        </div>
+        <input type="submit" value="수정하기" class="btn btn-primary">
+        <a href="/author/{{author.id}}" class="btn btn-secondary">수정취소</a>
+        
+    </div>  
 </form>
 
 {% endblock %}
+
+<!-- 
+{% extends 'home.html' %}
+
+{% block content%}
+<h1>회원수정</h1>
+<form method="POST">
+    {% csrf_token %}
+    <div class="form-group">
+    이름<input type="text" class = "form-control" name="my_name" value="{{author.name}}">
+    </div>
+    <div class="form-group">
+    email<input type="text" class = "form-control" name="my_email" value="{{author.email}}">
+    </div>
+    <div class="form-group">
+    password<input type="text" class = "form-control" name="my_password" value="{{author.password}}">
+    </div>
+    <input type="submit" value="수정하기" class="btn btn-primary">
+    <a href="/author/{{author.id}}" class="btn btn-secondary">수정취소</a>
+</form>
+{% endblock %}
+ -->
